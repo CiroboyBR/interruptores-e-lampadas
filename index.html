@@ -27,19 +27,19 @@
     <div class="textoCenter">SALAS</div>
     <div class="divDescricao">
         <select id="respSala1">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">4</option>
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
         </select>
-        <select id="respSala1">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">4</option>
+        <select id="respSala2">
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
         </select>
-        <select id="respSala1">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">4</option>
+        <select id="respSala3">
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
         </select>
     </div>
     <div class="divSalas">
@@ -126,6 +126,7 @@
             
             border-width: 1px;
             border-style: solid;
+            border-radius: 20px;
             text-align: center;
 
             display: flex;
@@ -142,6 +143,7 @@
             background-color: red;
             border-width: 1px;
             border-style: solid;
+            border-radius: 20px;
             text-align: center;
             
             display: flex;
@@ -164,38 +166,32 @@
     </style>
 
 <script>
-    interruptores = new Array(1,2,3)
+    var interruptores = new Array(1,2,3)
     shuffleArray(interruptores)
-    intA = false
-    intB = false
-    intC = false
-    qtd_visitas = 2
+    var intA = false
+    var intB = false
+    var intC = false
+    var qtd_visitas = 2
 
-    salas = [false, false, false] 
+    var salas = [false, false, false] 
     console.log(interruptores)
     console.log(salas)
     
-    
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
     function mostraSala(numeroSala){
-        if(salas[numeroSala] == false){
-            alert('A luz está desligada')
-            qtd_visitas--
-        }
-        else{
-            alert('A luz está ligada')
-            qtd_visitas--
-        }
+        if(qtd_visitas > 0){
+            if(salas[numeroSala] == false){
+                alert('A luz está desligada')
+                qtd_visitas--
+            }
+            else{
+                alert('A luz está ligada')
+                qtd_visitas--
+            }
 
-        document.getElementById('qtdVisitas').innerHTML = "VISITAS DISPONÍVEIS: " + qtd_visitas
-
+            document.getElementById('qtdVisitas').innerHTML = "VISITAS DISPONÍVEIS: " + qtd_visitas
+        } else{
+            alert('QTD de visitas excedidas. Envie sua resposta.')
+        }
     }
 
     function acionaInterruptor(interruptor){
@@ -221,9 +217,18 @@
                 salas[interruptores[2] - 1] = false
             }
         }
-        console.log(interruptores)
-        console.log(salas)
     }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    console.log(interruptores)
+    console.log(salas)
+    
     
 </script>
 </body>
