@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz dos interruptores</title>
+</head>
+<body>
+    
+    <div class="textoCenter">INTERRUPTORES</div>
+    <div class="divDescricao">
+        <h2>A</h2>
+        <h2>B</h2>
+        <h2>C</h2>
+    </div>
+    <div class="divInterruptores">
+        <div class="interruptor" id="intA" onclick="acionaInterruptor('intA')" style="background-color: red;">OFF</div>
+        <div class="interruptor" id="intB" onclick="acionaInterruptor('intB')" style="background-color: red;">OFF</div>
+        <div class="interruptor" id="intC" onclick="acionaInterruptor('intC')" style="background-color: red;">OFF</div>
+    </div>  
+    
+    <div class="textoCenter">SALAS</div>
+    <div class="divDescricao">
+        <select id="respSala1">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">4</option>
+        </select>
+        <select id="respSala1">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">4</option>
+        </select>
+        <select id="respSala1">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">4</option>
+        </select>
+    </div>
+    <div class="divSalas">
+            <div class="sala" id="sala1">VISITAR SALA</div>
+            <div class="sala" id="sala2">VISITAR SALA</div>
+            <div class="sala" id="sala3">VISITAR SALA</div>
+    </div>
+    
+    <div class="textoCenter"><button>ENVIAR RESPOSTA</button></div>
+    
+    
+    <style>
+        .divDescricao {  
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        button{
+            height: 40PX;
+            cursor: pointer;
+            border-radius: 20PX;
+        }
+        button:hover{
+            background-color: rgb(22, 141, 85);
+            height: 50px;
+            transition:
+                height 1s,
+                rotate 1s;
+            opacity: 1;
+            
+        }
+
+        select, h2{
+            width: 80px;
+            
+            margin: 0 auto;
+            margin-bottom: 3px;
+            
+            text-align: center;
+            
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .textoCenter{
+            background-color: rgb(110, 130, 131);
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .divInterruptores {  
+            margin-bottom: 10%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .divSalas {  
+            margin-bottom: 5%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .sala{
+            width: 80px;
+            height: 50px;
+            margin: 0 auto;
+            
+            border-width: 1px;
+            border-style: solid;
+            text-align: center;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .interruptor{
+            width: 80px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: red;
+            border-width: 1px;
+            border-style: solid;
+            text-align: center;
+            
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            
+        }
+        #sala1{
+            background-color: lightcoral;
+        }
+
+        #sala2{
+            background-color: lightseagreen;
+        }
+        #sala3{
+            background-color: limegreen;
+        }
+    </style>
+
+<script>
+    interruptores = new Array(1,2,3)
+    shuffleArray(interruptores)
+    intA = false
+    intB = false
+    intC = false
+
+    salas = [false, false, false] 
+    console.log(interruptores)
+    console.log(salas)
+    
+    
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function acionaInterruptor(interruptor){
+        if(document.getElementById(interruptor).style.backgroundColor == "red"){
+            document.getElementById(interruptor).style.backgroundColor = "green"
+            document.getElementById(interruptor).innerHTML = "ON"
+            if(interruptor == "intA"){
+                salas[interruptores[0] - 1] = true
+            } else if(interruptor == "intB"){
+                salas[interruptores[1] - 1] = true
+            } else if(interruptor == "intC"){
+                salas[interruptores[2] - 1] = true
+            }
+        }
+        else{
+            document.getElementById(interruptor).style.backgroundColor = "red"
+            document.getElementById(interruptor).innerHTML = "OFF"
+            if(interruptor == "intA"){
+                salas[interruptores[0] - 1] = false
+            } else if(interruptor == "intB"){
+                salas[interruptores[1] - 1] = false
+            } else if(interruptor == "intC"){
+                salas[interruptores[2] - 1] = false
+            }
+        }
+        console.log(interruptores)
+        console.log(salas)
+    }
+    
+</script>
+</body>
+</html>
