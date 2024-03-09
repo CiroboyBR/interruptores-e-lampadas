@@ -7,6 +7,11 @@
 </head>
 <body>
     
+    
+    <div class="divDescricao">
+        <h3 id="qtdVisitas">VISITAS DISPONÍVEIS: 2</h3>
+    </div>
+
     <div class="textoCenter">INTERRUPTORES</div>
     <div class="divDescricao">
         <h2>A</h2>
@@ -38,12 +43,12 @@
         </select>
     </div>
     <div class="divSalas">
-            <div class="sala" id="sala1">VISITAR SALA</div>
-            <div class="sala" id="sala2">VISITAR SALA</div>
-            <div class="sala" id="sala3">VISITAR SALA</div>
+            <div class="sala" id="sala1" onclick="mostraSala(0)">VISITAR SALA</div>
+            <div class="sala" id="sala2" onclick="mostraSala(1)">VISITAR SALA</div>
+            <div class="sala" id="sala3" onclick="mostraSala(2)">VISITAR SALA</div>
     </div>
     
-    <div class="textoCenter"><button>ENVIAR RESPOSTA</button></div>
+    <div class="divBotao"><button>ENVIAR RESPOSTA</button></div>
     
     
     <style>
@@ -59,15 +64,23 @@
             height: 40PX;
             cursor: pointer;
             border-radius: 20PX;
+            font-size: large;
+            font-weight: bold;
         }
         button:hover{
             background-color: rgb(22, 141, 85);
-            height: 50px;
-            transition:
-                height 1s,
-                rotate 1s;
-            opacity: 1;
+            height: 45px;
+            transition: height 0.7s;
+                opacity: 1;
+            border-color: rgb(15, 88, 0);
+            border-style: solid;
+            border-width: 2px;
             
+        }
+
+        .divBotao{
+            margin: 0 auto;
+            text-align: center;
         }
 
         select, h2{
@@ -156,6 +169,7 @@
     intA = false
     intB = false
     intC = false
+    qtd_visitas = 2
 
     salas = [false, false, false] 
     console.log(interruptores)
@@ -169,6 +183,19 @@
             [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
+    }
+    function mostraSala(numeroSala){
+        if(salas[numeroSala] == false){
+            alert('A luz está desligada')
+            qtd_visitas--
+        }
+        else{
+            alert('A luz está ligada')
+            qtd_visitas--
+        }
+
+        document.getElementById('qtdVisitas').innerHTML = "VISITAS DISPONÍVEIS: " + qtd_visitas
+
     }
 
     function acionaInterruptor(interruptor){
