@@ -1,0 +1,112 @@
+.divDescricao {  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+button{
+    height: 40PX;
+    cursor: pointer;
+    border-radius: 20PX;
+    font-size: large;
+    font-weight: bold;
+}
+button:hover{
+    background-color: rgb(22, 141, 85);
+    height: 45px;
+    transition: height 0.7s;
+        opacity: 1;
+    border-color: rgb(15, 88, 0);
+    border-style: solid;
+    border-width: 2px;
+    
+}
+
+.divBotao{
+    margin: 0 auto;
+    text-align: center;
+}
+
+select, .descInterruptores{
+    width: 80px;
+    
+    margin: 0 auto;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    
+    text-align: center;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.textoCenter{
+    background-color: rgb(110, 130, 131);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.divInterruptores {  
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.divSalas {  
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.sala{
+    width: 80px;
+    height: 50px;
+    margin: 0 auto;
+    
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.interruptor{
+    width: 80px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: red;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    text-align: center;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+#sala1{
+    background-color: lightcoral;
+}
+
+#sala2{
+    background-color: lightseagreen;
+}
+#sala3{
+    background-color: limegreen;
+}
