@@ -48,7 +48,7 @@
             <div class="sala" id="sala3" onclick="mostraSala(2)">VISITAR SALA</div>
     </div>
     
-    <div class="divBotao"><button>ENVIAR RESPOSTA</button></div>
+    <div class="divBotao"><button onclick="verificaResposta()">ENVIAR RESPOSTA</button></div>
     
     
     <style>
@@ -88,6 +88,7 @@
             
             margin: 0 auto;
             margin-bottom: 3px;
+            margin-top: 3px;
             
             text-align: center;
             
@@ -177,6 +178,18 @@
     console.log(interruptores)
     console.log(salas)
     
+    function verificaResposta(){
+        respSala1 = document.getElementById('respSala1').value
+        respSala2 = document.getElementById('respSala2').value
+        respSala3 = document.getElementById('respSala3').value
+        if (respSala1 == interruptores[0] && respSala2 == interruptores[1] && respSala3 == interruptores[2]){
+            alert('Você acertou!')
+        }
+        else {
+            alert('Você errou!')
+        }
+    }
+
     function mostraSala(numeroSala){
         if(qtd_visitas > 0){
             if(salas[numeroSala] == false){
