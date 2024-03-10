@@ -10,14 +10,18 @@
     var intC = false
     var qtd_visitas = 2
 
+    var respSala1 = parseInt(document.getElementById('respSala1').value) 
+    var respSala2 = parseInt(document.getElementById('respSala2').value)
+    var respSala3 = parseInt(document.getElementById('respSala3').value)
+
     var salas = [false, false, false] 
     console.log(interruptores)
     console.log(salas)
     
     function verificaResposta(){
-        respSala1 = document.getElementById('respSala1').value
-        respSala2 = document.getElementById('respSala2').value
-        respSala3 = document.getElementById('respSala3').value
+        respSala1 = parseInt(document.getElementById('respSala1').value) 
+        respSala2 = parseInt(document.getElementById('respSala2').value)
+        respSala3 = parseInt(document.getElementById('respSala3').value)
         if (respSala1 == interruptores[0] && respSala2 == interruptores[1] && respSala3 == interruptores[2]){
             Swal.fire("Você acertou!");
         }
