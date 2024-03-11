@@ -1,3 +1,7 @@
+body{
+    background: rgb(20,28,245);
+    background: linear-gradient(0deg, rgba(20,28,245,1) 0%, rgba(149,151,242,1) 42%, rgba(169,203,223,0.992462311557789) 100%); 
+}
 .divDescricao {  
     display: flex;
     flex-direction: row;
@@ -6,16 +10,18 @@
     
 }
 
-button{
-    height: 40PX;
+.botaoEnviar{
     cursor: pointer;
     border-radius: 20PX;
-    font-size: large;
+    font-size: medium;
     font-weight: bold;
+    opacity: 0.7;
+    width: 40%;
+    aspect-ratio: 3/1;
 }
-button:hover{
+.botaoEnviar:hover{
     background-color: rgb(22, 141, 85);
-    height: 45px;
+    opacity: 1;
     transition: height 0.7s;
         opacity: 1;
     border-color: rgb(15, 88, 0);
@@ -27,10 +33,12 @@ button:hover{
 .divBotao{
     margin: 0 auto;
     text-align: center;
+
 }
 
 select, .descInterruptores{
-    width: 80px;
+    width: 20%;
+    aspect-ratio: 2/1;
     
     margin: 0 auto;
     margin-bottom: 3px;
@@ -50,7 +58,7 @@ select, .descInterruptores{
 }
 
 .divInterruptores {  
-    margin-bottom: 10%;
+    margin-bottom: 3%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -58,7 +66,7 @@ select, .descInterruptores{
 }
 
 .divSalas {  
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -67,8 +75,8 @@ select, .descInterruptores{
 }
 
 .sala{
-    width: 80px;
-    height: 50px;
+    width: 30%;
+    aspect-ratio: 3/1;
     margin: 0 auto;
     
     border-width: 1px;
@@ -84,8 +92,8 @@ select, .descInterruptores{
 }
 
 .interruptor{
-    width: 80px;
-    height: 50px;
+    width: 30%;
+    aspect-ratio: 3/1;
     margin: 0 auto;
     background-color: red;
     border-width: 1px;
@@ -99,6 +107,13 @@ select, .descInterruptores{
     justify-content: center;
     cursor: pointer;
     
+    transition: 0.3s;
+    opacity: 0.7;
+}
+
+.interruptor:hover{
+    background-color: rgb(0, 87, 22);
+    opacity: 1;
 }
 #sala1{
     background-color: lightcoral;
@@ -109,4 +124,13 @@ select, .descInterruptores{
 }
 #sala3{
     background-color: limegreen;
+}
+
+.sala{
+    transition: 0.3s;
+    opacity: 0.7;
+}
+
+.sala:hover{
+    opacity: 1;
 }

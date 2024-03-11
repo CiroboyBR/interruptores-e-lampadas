@@ -13,20 +13,24 @@
     var respSala1 = parseInt(document.getElementById('respSala1').value) 
     var respSala2 = parseInt(document.getElementById('respSala2').value)
     var respSala3 = parseInt(document.getElementById('respSala3').value)
-
+    
     var salas = [false, false, false] 
-    console.log(interruptores)
-    console.log(salas)
+    reiniciaJogo()
     
     function verificaResposta(){
         respSala1 = parseInt(document.getElementById('respSala1').value) 
         respSala2 = parseInt(document.getElementById('respSala2').value)
         respSala3 = parseInt(document.getElementById('respSala3').value)
+
         if (respSala1 == interruptores[0] && respSala2 == interruptores[1] && respSala3 == interruptores[2]){
             Swal.fire("Você acertou!");
+            reiniciaJogo()
+
         }
         else {
             Swal.fire("Você errou!");
+            reiniciaJogo() 
+
         }
     }
 
@@ -78,4 +82,39 @@
             [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
+    }
+
+    function debuga(){
+        console.log('A: ', interruptores[0])
+        console.log('B: ', interruptores[1])
+        console.log('C: ', interruptores[2])
+
+        console.log('R1: ', parseInt(document.getElementById('respSala1').value) )
+        console.log('R2: ', parseInt(document.getElementById('respSala2').value) )
+        console.log('R3: ', parseInt(document.getElementById('respSala3').value) )
+    }
+
+    function reiniciaJogo(){
+        shuffleArray(interruptores)
+        intA = false
+        intB = false
+        intC = false
+        qtd_visitas = 2
+
+        respSala1 = parseInt(document.getElementById('respSala1').value) 
+        respSala2 = parseInt(document.getElementById('respSala2').value)
+        respSala3 = parseInt(document.getElementById('respSala3').value)
+        
+        salas = [false, false, false] 
+
+        document.getElementById('intA').innerHTML = "OFF"
+        document.getElementById('intA').style.backgroundColor = "red"
+        document.getElementById('intB').innerHTML = "OFF"
+        document.getElementById('intB').style.backgroundColor = "red"
+        document.getElementById('intC').innerHTML = "OFF"
+        document.getElementById('intC').style.backgroundColor = "red"
+
+        // console.log(interruptores)
+        // console.log(salas)
+
     }
